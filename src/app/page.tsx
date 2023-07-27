@@ -1,13 +1,14 @@
 import { GlobalStyle } from "@/styles/GlobalStyles"
 import { CustomThemeProvider } from "@/contexts/ThemeContext";
 import Switcher from "@/components/Switcher";
+import AdviceCard from "@/components/AdviceCard";
 
 export default function Home() {
   return (
     <CustomThemeProvider>
       <GlobalStyle />
       <Switcher />
-      <h1>Hello World!</h1>
+      <AdviceCard />
     </CustomThemeProvider>
   )
 }
