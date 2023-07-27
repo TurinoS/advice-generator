@@ -13,10 +13,33 @@ interface AdviceCardProps {
 }
 
 const Card = styled.div`
-    width: 33vw;
+    width: 50vw;
     height: 50vh;
-    margin: 25vh 33vw;
+    margin: 25vh 25vw;
     background-color: ${props => props.theme.colors.darkGrayishBlue};
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
+    & button {
+        background-color: ${props => props.theme.colors.neonGreen};
+        border: none;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 23px;
+
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0 0 12px 12px ${props => props.theme.colors.neonGreenShadow};
+        }
+    }
 `
 
 export default function AdviceCard() {
