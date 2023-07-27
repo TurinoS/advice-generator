@@ -14,5 +14,6 @@ export const GlobalStyle = createGlobalStyle`
         background-color: ${props => props.theme.colors.darkBlue};
         color: ${props => props.theme.colors.lightCyan};
         height: 100vh;
+        width: 100%;
     }
 `
