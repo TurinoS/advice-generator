@@ -2,9 +2,12 @@
 
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import dice from "../assets/icon-dice.svg"
+import Image from "next/image";
 
 interface AdviceCardProps {
     slip: {
+        id: number,
         advice: string,
     }
 }
@@ -18,6 +21,7 @@ const Card = styled.div`
 
 export default function AdviceCard() {
     const [advice, setAdvice] = useState<AdviceCardProps>()
+    const [newAdvice, setNewAdvice] = useState(true)
 
     useEffect(() => {
      async function fetchData() {
@@ -25,12 +29,20 @@ export default function AdviceCard() {
         const data = await res.json();
         setAdvice(data);
      } 
-     fetchData()
-    }, [])
+     fetchData();
+    }, [newAdvice])
+
+    const rollDice = () => {
+        setNewAdvice(!newAdvice)
+    }
 
     return(
         <Card>
-            <h1>{advice && advice.slip.advice}</h1>
+            <h1>Advice #{advice && advice.slip.id}</h1>
+            <h2>{advice && advice.slip.advice}</h2>
+            <button onClick={rollDice}>
+                <Image src={dice} alt="Clique para um novo conselho" width={24} height={24} />
+            </button>
         </Card>
     )
 }
