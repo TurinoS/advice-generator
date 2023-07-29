@@ -17,7 +17,7 @@ interface AdviceCardProps {
 const Card = styled.div`
     width: 50vw;
     height: 50vh;
-    margin: 25vh 25vw;
+    margin: 20vh 25vw;
     padding: 1em;
     background-color: ${props => props.theme.colors.darkGrayishBlue};
     display: flex;

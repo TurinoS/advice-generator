@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     body {
         background-color: ${props => props.theme.colors.darkBlue};
         color: ${props => props.theme.colors.lightCyan};
-        height: 100vh;
+        max-height: 100vw;
         width: 100%;
     }
 `
