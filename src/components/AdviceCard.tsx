@@ -93,7 +93,7 @@ export default function AdviceCard() {
                 </div> : 
                 <h2>{advice && advice.slip.advice}</h2>}
 
-            <Image src={trace} alt="trace" width={400} height={20} />
+            <Image src={trace} alt="trace" width={400} height={20} priority />
 
             <button onClick={rollDice}>
                 <Image src={dice} alt="Clique para um novo conselho" width={24} height={24} />
