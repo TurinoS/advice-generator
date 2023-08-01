@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { translateText } from '../utils/translate';
 import styled from "styled-components";
 import thinking from "../assets/thinking.png";
 import trace from "../assets/pattern-divider-desktop.svg";
@@ -12,6 +13,10 @@ interface AdviceCardProps {
     id: number;
     advice: string;
   };
+}
+
+interface TranslatedAdviceCardProps {
+  advice: string;
 }
 
 const Card = styled.div`
@@ -41,6 +46,7 @@ const Card = styled.div`
   }
 
   & h1 {
+    font-size: 24px;
     color: ${(props) => props.theme.colors.neonGreenFont};
   }
 
@@ -77,12 +83,24 @@ export default function AdviceCard() {
   const [advice, setAdvice] = useState<AdviceCardProps>();
   const [newAdvice, setNewAdvice] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [translatedAdvice, setTranslatedAdvice] = useState<TranslatedAdviceCardProps | null>(null);
 
   useEffect(() => {
     async function fetchData() {
       const res = await fetch("https://api.adviceslip.com/advice");
       const data = await res.json();
       setAdvice(data);
+
+      if (data && data.slip && data.slip.advice) {
+        translateText(data.slip.advice, 'pt')
+          .then((translatedText) => {
+            setTranslatedAdvice({ advice: translatedText });
+          })
+          .catch((error) => {
+            console.error('Error translating advice:', error);
+            setTranslatedAdvice(null);
+          });
+        }
     }
     fetchData();
   }, [newAdvice]);
@@ -101,7 +119,7 @@ export default function AdviceCard() {
       {loading ? (
         <h1> Advice - - -</h1>
       ) : (
-        <h1>Advice #{advice && advice.slip.id}</h1>
+        <h1>Conselho nº{advice && advice.slip.id}</h1>
       )}
       {loading ? (
         <div>
@@ -109,7 +127,7 @@ export default function AdviceCard() {
           <Image src={thinking} alt="Emoji thinking" width={50} height={50} />
         </div>
       ) : (
-        <h2>{advice && advice.slip.advice}</h2>
+        <h2>{translatedAdvice && translatedAdvice.advice}</h2>
       )}
 
       <Image className="trace" src={trace} alt="trace" width={400} height={20} priority />
