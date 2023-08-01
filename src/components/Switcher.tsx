@@ -10,6 +10,10 @@ const ThemeSwitcher = styled.div`
     top: 5vh;
     left: 87.5vw;
     transform: scale(1.2);
+
+    @media (max-width: 600px) {
+        left: 80vw;
+    }
 `
 
 const SunIcon = styled(BsSunFill)`
