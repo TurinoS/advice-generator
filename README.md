@@ -1,6 +1,6 @@
 # Advice Generator
 
-## Você pode ver o projeto em funcionamento [AQUI]()
+## Você pode ver o projeto em funcionamento [AQUI](https://advice-generator-turinos.vercel.app/)
 
 ## :dart: Proposta:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;O objetivo desse projeto foi aprofundar um pouco mais meus conhecimentos nas últimas tecnologias que aprendi (Next.js e TypeScript).  
@@ -46,7 +46,7 @@ ou
 yarn dev
 ```
 
-ou usar o link para o projeto []()
+ou usar o link para o projeto [https://advice-generator-turinos.vercel.app/](https://advice-generator-turinos.vercel.app/)
 
 ## 😎 Minhas redes
 
