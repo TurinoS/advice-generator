@@ -119,7 +119,7 @@ export default function AdviceCard() {
       {loading ? (
         <h1> Advice - - -</h1>
       ) : (
-        <h1>Conselho nº{advice && advice.slip.id}</h1>
+        <h1>Advice #{advice && advice.slip.id}</h1>
       )}
       {loading ? (
         <div>
